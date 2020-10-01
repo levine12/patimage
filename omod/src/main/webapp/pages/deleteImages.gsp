@@ -23,7 +23,7 @@ ui.includeCss("uicommons", "datatables/dataTables_jui.css")
 
 <script type="text/javascript">
 var deleteFileNames = "";
-
+  
 jq=jQuery;
 jq(function() { 
      jq('#patientImageTable').dataTable({
