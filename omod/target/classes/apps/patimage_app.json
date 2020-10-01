@@ -1,0 +1,43 @@
+[
+    {
+        "id": "${project.parent.artifactId}.apppatimage",
+        "description": "Text description of my app, not shown to regular user",
+        "extensionPoints": [
+            {
+                "id": "subApp.patimage",
+                "description": "Apps for patient image"
+            }
+        ],
+        "extensions": [
+            {
+                "id": "${project.parent.artifactId}.deletepics",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "Delete Old Patient Images",
+                "url": "patimage/deleteImages.page",
+                "icon": "icon-search",
+                "requiredPrivilege": "App: graphing"
+            },                
+            {
+                "id": "${project.parent.artifactId}.patientDashboard.secondColumnFragments",
+                "extensionPointId": "patientDashboard.secondColumnFragments",
+                "order": 30,
+                "extensionParams": {
+                    "provider": "patimage",
+                    "fragment": "patientPic"
+                }
+            },
+            {
+                "id": "${project.parent.artifactId}.uploadImage",
+                "extensionPointId": "patientDashboard.overallActions",
+                "type": "link",
+                "label": "Upload Patient Image",
+                "url": "patimage/uploadImage.page?patientId={{patient.patientId}}",
+                "icon": "icon-search",
+                "order": 14,
+                "requiredPrivilege": "App: patimage Privilege"
+            }
+        ]
+    }
+]
+
